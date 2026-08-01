@@ -3,21 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gokak Bangle Store | Premium Wholesale & Retail</title>
+    <title>PT Bennadi Bangle Store | Premium Wholesale</title>
     
     <!-- Google Fonts for Premium Typography -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
     
     <style>
-        /* CSS Variables for Minimalist & Premium Theme */
+        /* Minimalist & Premium Theme Variables */
         :root {
-            --primary: #8b1c31; /* Deep Traditional Crimson */
+            --primary: #8b1c31; /* Deep Crimson */
             --accent: #d4af37;  /* Metallic Gold */
-            --bg-color: #fcfbf9; /* Soft Off-White */
-            --text-dark: #222222;
-            --text-light: #777777;
+            --bg-color: #faf9f6; /* Soft Off-White */
+            --text-dark: #1a1a1a;
+            --text-light: #666666;
             --white: #ffffff;
         }
 
@@ -40,48 +40,65 @@
             font-weight: 600;
         }
 
-        /* Animations */
+        /* --- Animations --- */
         @keyframes fadeUp {
-            from { opacity: 0; transform: translateY(30px); }
+            from { opacity: 0; transform: translateY(40px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
         @keyframes imageReveal {
-            from { opacity: 0; transform: scale(0.95); }
-            to { opacity: 1; transform: scale(1); }
+            from { opacity: 0; filter: blur(5px); transform: scale(0.98); }
+            to { opacity: 1; filter: blur(0); transform: scale(1); }
         }
 
         .animate-up {
-            animation: fadeUp 1.2s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+            opacity: 0; /* Hidden by default until scrolled */
+            animation: fadeUp 1s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
         }
 
         .delay-1 { animation-delay: 0.2s; }
         .delay-2 { animation-delay: 0.4s; }
         .delay-3 { animation-delay: 0.6s; }
 
-        /* Navbar */
+        /* --- Navigation & PTB Logo --- */
         nav {
-            padding: 2rem 5%;
+            padding: 1.5rem 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background-color: var(--bg-color);
+            background-color: var(--white);
             position: sticky;
             top: 0;
             z-index: 100;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.04);
         }
 
         .logo {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.8rem;
-            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 12px;
             text-decoration: none;
-            letter-spacing: 1px;
         }
 
-        .logo span {
+        .ptb-mark {
+            background: var(--text-dark);
             color: var(--accent);
+            padding: 8px 14px;
+            border-radius: 4px;
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            font-size: 1.6rem;
+            letter-spacing: 2px;
+        }
+
+        .brand-text {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 500;
+            font-size: 1.1rem;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            line-height: 1.2;
         }
 
         .contact-btn {
@@ -91,6 +108,7 @@
             text-decoration: none;
             border-radius: 30px;
             font-weight: 500;
+            font-size: 0.95rem;
             transition: all 0.3s ease;
             border: 1px solid var(--primary);
         }
@@ -100,13 +118,13 @@
             color: var(--primary);
         }
 
-        /* Hero Section */
+        /* --- Hero Section --- */
         .hero {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            min-height: 80vh;
-            padding: 0 5%;
+            min-height: 85vh;
+            padding: 4rem 5%;
             gap: 4rem;
         }
 
@@ -116,7 +134,7 @@
         }
 
         .hero-text h1 {
-            font-size: 4rem;
+            font-size: 4.5rem;
             line-height: 1.1;
             margin-bottom: 1.5rem;
             color: var(--text-dark);
@@ -126,23 +144,26 @@
             font-size: 1.1rem;
             color: var(--text-light);
             margin-bottom: 2.5rem;
+            max-width: 450px;
         }
 
         .hero-image {
             flex: 1;
             position: relative;
+            opacity: 0;
             animation: imageReveal 1.5s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+            animation-delay: 0.3s;
         }
 
         .hero-image img {
             width: 100%;
-            height: 600px;
+            height: 650px;
             object-fit: cover;
-            border-radius: 20px 20px 150px 20px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            border-radius: 10px 100px 10px 10px;
+            box-shadow: -20px 20px 0px rgba(212, 175, 55, 0.15);
         }
 
-        /* Collections Section */
+        /* --- Collections Grid --- */
         .collections {
             padding: 6rem 5%;
             background-color: var(--white);
@@ -150,9 +171,9 @@
         }
 
         .section-title {
-            font-size: 2.5rem;
+            font-size: 2.8rem;
             margin-bottom: 1rem;
-            color: var(--primary);
+            color: var(--text-dark);
         }
 
         .section-subtitle {
@@ -165,35 +186,37 @@
 
         .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 3rem;
         }
 
         .card {
             background: var(--bg-color);
             padding: 1.5rem;
-            border-radius: 15px;
-            transition: transform 0.4s ease, box-shadow 0.4s ease;
-            cursor: pointer;
+            border-radius: 12px;
+            transition: transform 0.4s ease;
             text-align: left;
+            border: 1px solid #f0f0f0;
         }
 
         .card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.06);
         }
 
         .card img {
             width: 100%;
-            height: 350px;
+            height: 380px;
             object-fit: cover;
-            border-radius: 10px;
+            border-radius: 8px;
             margin-bottom: 1.5rem;
+            background-color: #eee; /* Fallback color while loading */
         }
 
         .card h3 {
-            font-size: 1.5rem;
+            font-size: 1.6rem;
             margin-bottom: 0.5rem;
+            color: var(--primary);
         }
 
         .card p {
@@ -201,11 +224,11 @@
             font-size: 0.95rem;
         }
 
-        /* Store Info / Banner */
+        /* --- Store Info / Banner --- */
         .info-banner {
-            background: linear-gradient(135deg, var(--primary), #5a0e1c);
+            background: linear-gradient(135deg, var(--text-dark), #333333);
             color: var(--white);
-            padding: 5rem 5%;
+            padding: 6rem 5%;
             text-align: center;
         }
 
@@ -216,85 +239,99 @@
         }
 
         .address-box {
-            background: rgba(255,255,255,0.1);
+            background: rgba(255,255,255,0.05);
             backdrop-filter: blur(10px);
             display: inline-block;
-            padding: 2rem 4rem;
-            border-radius: 15px;
-            border: 1px solid rgba(255,255,255,0.2);
+            padding: 2.5rem 4rem;
+            border-radius: 10px;
+            border: 1px solid rgba(212, 175, 55, 0.3);
             margin-top: 2rem;
         }
 
         .address-box p {
             font-size: 1.2rem;
-            margin: 0.5rem 0;
+            margin: 0.8rem 0;
         }
 
-        /* Floating WhatsApp */
+        /* --- Floating WhatsApp --- */
         .whatsapp-float {
             position: fixed;
             bottom: 30px;
             right: 30px;
             background-color: #25D366;
             color: white;
-            width: 60px;
-            height: 60px;
+            width: 65px;
+            height: 65px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 30px;
-            box-shadow: 0 10px 20px rgba(37, 211, 102, 0.4);
-            text-decoration: none;
+            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4);
             transition: transform 0.3s ease;
             z-index: 1000;
         }
 
         .whatsapp-float:hover {
-            transform: scale(1.1) rotate(10deg);
+            transform: scale(1.1);
         }
 
         .whatsapp-float svg {
-            width: 35px;
-            height: 35px;
+            width: 38px;
+            height: 38px;
             fill: currentColor;
         }
 
-        /* Footer */
+        /* --- Footer --- */
         footer {
-            padding: 2rem 5%;
+            padding: 3rem 5%;
             text-align: center;
             background-color: var(--white);
             color: var(--text-light);
-            font-size: 0.9rem;
-            border-top: 1px solid #eee;
+            border-top: 1px solid #eaeaea;
+        }
+
+        .footer-logo {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--text-dark);
+            margin-bottom: 1rem;
         }
 
         .signature {
-            margin-top: 10px;
-            font-size: 0.8rem;
-            color: #999;
+            margin-top: 20px;
+            font-size: 0.85rem;
+            color: #b0b0b0;
             letter-spacing: 1px;
             text-transform: uppercase;
         }
 
-        /* Responsive Design */
-        @media (max-width: 900px) {
+        /* --- Responsive Design --- */
+        @media (max-width: 950px) {
             .hero {
                 flex-direction: column;
                 text-align: center;
-                padding-top: 4rem;
+                padding-top: 3rem;
+            }
+            .hero-text {
+                max-width: 100%;
+            }
+            .hero-text p {
+                margin: 0 auto 2.5rem auto;
             }
             .hero-text h1 {
-                font-size: 3rem;
+                font-size: 3.5rem;
             }
             .hero-image img {
                 height: 400px;
-                border-radius: 20px;
+                border-radius: 10px 50px 10px 10px;
             }
             .address-box {
                 padding: 1.5rem;
                 width: 100%;
+            }
+            .brand-text {
+                font-size: 0.9rem;
             }
         }
     </style>
@@ -303,62 +340,66 @@
 
     <!-- Navigation -->
     <nav>
-        <a href="#" class="logo">Gokak <span>Bangles</span></a>
-        <a href="https://wa.me/916363798987" class="contact-btn" target="_blank">Contact Us</a>
+        <a href="#" class="logo">
+            <span class="ptb-mark">PTB</span>
+            <span class="brand-text">Bennadi<br>Bangle Store</span>
+        </a>
+        <a href="https://wa.me/916363798987" class="contact-btn" target="_blank">Inquire Now</a>
     </nav>
 
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-text animate-up">
-            <h1>Elegance in Every <br><span style="color: var(--primary); font-style: italic;">Tradition</span></h1>
-            <p>Discover the finest collection of premium traditional, modern, and wholesale bangles. Crafted with precision, designed for heritage.</p>
-            <a href="#collections" class="contact-btn">Explore Collection</a>
+            <h1>Heritage <br><span style="color: var(--primary); font-style: italic;">Redefined.</span></h1>
+            <p>Discover PT Bennadi's finest collection of premium traditional and modern wholesale bangles. Crafted with precision in Gokak.</p>
+            <a href="#collections" class="contact-btn" style="padding: 1rem 2.5rem; font-size: 1.1rem;">Explore Collection</a>
         </div>
         <div class="hero-image">
-            <!-- Using high-quality royalty-free image from Unsplash -->
-            <img src="https://images.unsplash.com/photo-1599643478524-fb5244ca76f0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Premium Indian Bangles">
+            <!-- High-quality royalty-free image -->
+            <img src="https://images.unsplash.com/photo-1599643478524-fb5244ca76f0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Premium Traditional Indian Bangles">
         </div>
     </section>
 
     <!-- Collections Section -->
     <section class="collections" id="collections">
-        <h2 class="section-title animate-up">Our Premium Collections</h2>
-        <p class="section-subtitle animate-up">Available for wholesale distribution and retail buyers across India.</p>
+        <h2 class="section-title animate-up">Signature Collections</h2>
+        <p class="section-subtitle animate-up">Exclusive designs available for wholesale distribution and retail buyers.</p>
         
         <div class="grid">
             <!-- Card 1 -->
             <div class="card animate-up delay-1">
                 <img src="https://images.unsplash.com/photo-1611591437281-460bfbe1220a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Gold Plated Bangles">
                 <h3>Bridal & Antique</h3>
-                <p>Heavy traditional designs featuring intricate gold plating, perfect for weddings and grand occasions.</p>
+                <p>Heavy traditional designs featuring intricate gold finishing, meticulously crafted for weddings and grand occasions.</p>
             </div>
             
             <!-- Card 2 -->
             <div class="card animate-up delay-2">
                 <img src="https://images.unsplash.com/photo-1605349479417-64cb25bd2713?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Colorful Glass Bangles">
                 <h3>Glass & Thread</h3>
-                <p>Vibrant, multi-colored glass bangles and handcrafted silk thread pieces for daily wear and festivals.</p>
+                <p>Vibrant, multi-colored premium glass bangles and handcrafted silk pieces for daily wear and festive celebrations.</p>
             </div>
             
             <!-- Card 3 -->
             <div class="card animate-up delay-3">
-                <img src="https://images.unsplash.com/photo-1515562141207-7a8efb7a2d1a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Wholesale Bangle Box">
-                <h3>Wholesale Catalogs</h3>
-                <p>Bulk orders crafted with quality assurance. Perfect for retailers looking for fast-moving designs.</p>
+                <img src="https://images.unsplash.com/photo-1515562141207-7a8efb7a2d1a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Wholesale Bangle Collection">
+                <h3>Wholesale Catalog</h3>
+                <p>Bulk orders crafted with uncompromising quality assurance. Perfect for retailers looking for high-margin, fast-moving designs.</p>
             </div>
         </div>
     </section>
 
     <!-- Location & Contact Banner -->
     <section class="info-banner">
-        <h2 class="animate-up">Visit Our Wholesale Hub</h2>
-        <p class="animate-up delay-1">Step into our store to experience the complete range of designs.</p>
+        <h2 class="animate-up">Visit The PTB Wholesale Hub</h2>
+        <p class="animate-up delay-1">Step into our Gokak showroom to experience the complete range of designs.</p>
         
         <div class="address-box animate-up delay-2">
-            <p><strong>📍 Flagship Store</strong></p>
+            <p style="color: var(--accent); font-weight: 600; font-size: 1.4rem;">PT Bennadi Bangle Store</p>
+            <p><strong>📍 Flagship Store:</strong></p>
             <p>Ho.No: 2888 Jain Galli, Gokak</p>
             <br>
-            <p><strong>📞 Direct Inquiry</strong></p>
+            <p><strong>📞 Direct Inquiry:</strong></p>
             <p>+91 6363798987</p>
         </div>
     </section>
@@ -373,7 +414,8 @@
 
     <!-- Footer -->
     <footer>
-        <p>&copy; 2026 Gokak Bangle Store. All Rights Reserved.</p>
+        <div class="footer-logo">PTB | Bennadi Bangles</div>
+        <p>&copy; 2026 PT Bennadi Bangle Store. All Rights Reserved.</p>
         <p class="signature">Developed by Kunal Dongare</p>
     </footer>
 
@@ -382,7 +424,7 @@
         const observerOptions = {
             root: null,
             rootMargin: '0px',
-            threshold: 0.1
+            threshold: 0.15 // Triggers slightly later for a smoother feel
         };
 
         const observer = new IntersectionObserver((entries, observer) => {
@@ -394,15 +436,15 @@
             });
         }, observerOptions);
 
-        // Pause animations initially so they only run when scrolled into view
         document.addEventListener('DOMContentLoaded', () => {
             const animatedElements = document.querySelectorAll('.animate-up');
             animatedElements.forEach(el => {
+                // Keep paused until scrolled into view
                 el.style.animationPlayState = 'paused';
                 observer.observe(el);
             });
             
-            // Immediately run hero animations
+            // Immediately run hero section animations so the page doesn't look blank on load
             document.querySelectorAll('.hero .animate-up').forEach(el => {
                 el.style.animationPlayState = 'running';
             });
