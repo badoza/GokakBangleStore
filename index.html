@@ -3,249 +3,519 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gokak Bangle Store | Wholesale & Retail</title>
+    <title>Gokak Bangle Store | Premium Wholesale & Retail</title>
+    
+    <!-- Google Fonts: Playfair Display for elegant headings, Poppins for clean text -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <style>
+        /* --- Premium Color Palette --- */
         :root {
-            --primary-color: #d81b60;
-            --secondary-color: #fbc02d;
-            --text-light: #fff;
-            --text-dark: #333;
+            --primary: #6E0D25; /* Deep Ruby Red / Maroon */
+            --primary-light: #9B1130;
+            --gold: #D4AF37; /* Royal Gold */
+            --dark: #1A1A1A;
+            --light: #FCFAEF; /* Warm Cream */
+            --text-gray: #555555;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #fffaf0;
-            color: var(--text-dark);
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+            overflow-x: hidden;
         }
 
-        /* Header & Hero Section */
-        header {
-            background: linear-gradient(135deg, var(--primary-color), #880e4f);
-            color: var(--text-light);
-            text-align: center;
-            padding: 4rem 1rem;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        h1, h2, h3, h4, .logo {
+            font-family: 'Playfair Display', serif;
         }
 
-        header h1 {
-            font-size: 3.5rem;
-            margin: 0;
-            font-family: 'Georgia', serif;
+        /* --- Navbar --- */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(252, 250, 239, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1.2rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.05);
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-transform: uppercase;
             letter-spacing: 2px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            text-decoration: none;
         }
 
-        header p {
+        .logo span {
+            color: var(--gold);
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            margin-left: 2.5rem;
+            font-weight: 500;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            height: 100vh;
+            /* High-quality Unsplash image of traditional bridal bangles */
+            background: url('https://images.unsplash.com/photo-1611082538965-02059345c225?auto=format&fit=crop&w=2000&q=80') center/cover no-repeat;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(110, 13, 37, 0.8));
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            color: white;
+            max-width: 800px;
+            padding: 0 20px;
+        }
+
+        .hero h1 {
+            font-size: 4.5rem;
+            margin-bottom: 1rem;
+            letter-spacing: 2px;
+            line-height: 1.1;
+            animation: fadeInDown 1s ease;
+        }
+
+        .hero p {
             font-size: 1.2rem;
-            margin-top: 10px;
-            color: var(--secondary-color);
+            margin-bottom: 2.5rem;
+            font-weight: 300;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            animation: fadeInUp 1s ease 0.5s both;
+            color: var(--gold);
         }
 
-        /* Container */
-        .container {
-            max-width: 1000px;
+        .btn-gold {
+            display: inline-block;
+            padding: 15px 40px;
+            background-color: var(--gold);
+            color: var(--dark);
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            animation: fadeInUp 1s ease 0.8s both;
+            border: 2px solid var(--gold);
+        }
+
+        .btn-gold:hover {
+            background-color: transparent;
+            color: var(--gold);
+        }
+
+        /* --- Collections Section --- */
+        .section-padding {
+            padding: 100px 5%;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            font-size: 2.8rem;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        .section-title p {
+            color: var(--text-gray);
+            font-style: italic;
+            font-size: 1.1rem;
+        }
+
+        .collections-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 2rem 1rem;
         }
 
-        /* Store Info Card */
-        .info-card {
+        .collection-card {
             background: white;
             border-radius: 15px;
-            padding: 2rem;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transition: transform 0.4s ease;
+        }
+
+        .collection-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(110, 13, 37, 0.1);
+        }
+
+        .card-img {
+            height: 350px;
+            overflow: hidden;
+        }
+
+        .card-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .collection-card:hover .card-img img {
+            transform: scale(1.08);
+        }
+
+        .card-content {
+            padding: 30px 20px;
             text-align: center;
-            margin-top: -2rem;
-            border: 2px solid var(--secondary-color);
         }
 
-        .info-card h2 {
-            color: var(--primary-color);
-            margin-top: 0;
+        .card-content h3 {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-bottom: 10px;
         }
 
-        .address {
-            font-size: 1.1rem;
-            background: #fdf5e6;
-            padding: 15px;
-            border-radius: 8px;
-            display: inline-block;
-            margin: 10px 0;
-            border-left: 5px solid var(--primary-color);
+        .card-content p {
+            color: var(--text-gray);
+            font-size: 0.95rem;
         }
 
-        .btn-whatsapp {
-            background-color: #25D366;
+        /* --- Wholesale Banner --- */
+        .wholesale-banner {
+            background: var(--primary);
             color: white;
-            padding: 12px 25px;
-            text-decoration: none;
-            border-radius: 50px;
-            font-size: 1.1rem;
-            font-weight: bold;
-            display: inline-block;
-            margin-top: 15px;
-            transition: transform 0.3s;
+            text-align: center;
+            padding: 80px 5%;
+            background-image: linear-gradient(rgba(110, 13, 37, 0.9), rgba(110, 13, 37, 0.9)), url('https://images.unsplash.com/photo-1605810731872-914757c919ac?auto=format&fit=crop&w=1500&q=80');
+            background-attachment: fixed;
+            background-size: cover;
+            background-position: center;
         }
 
-        .btn-whatsapp:hover {
-            transform: scale(1.05);
+        .wholesale-banner h2 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: var(--gold);
         }
 
-        /* Bulk Sender Section */
-        .bulk-sender {
-            margin-top: 3rem;
-            background: #ffebee;
-            padding: 2rem;
+        .wholesale-banner p {
+            max-width: 700px;
+            margin: 0 auto 30px auto;
+            font-size: 1.2rem;
+            font-weight: 300;
+            line-height: 1.8;
+        }
+
+        /* --- Visit Us Section --- */
+        .contact-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .contact-card {
+            background: white;
+            padding: 60px;
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.06);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            border-top: 5px solid var(--gold);
+        }
+
+        .contact-card i.main-icon {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        .contact-card h3 {
+            font-size: 2.2rem;
+            color: var(--dark);
+            margin-bottom: 30px;
+        }
+
+        .info-wrapper {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            width: 100%;
+            max-width: 400px;
+            text-align: left;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: flex-start;
+            background: var(--light);
+            padding: 20px;
             border-radius: 10px;
-            border: 1px dashed var(--primary-color);
         }
 
-        .bulk-sender h3 {
-            color: #b71c1c;
-            margin-top: 0;
+        .info-item i {
+            color: var(--gold);
+            font-size: 1.5rem;
+            margin-right: 20px;
+            margin-top: 5px;
         }
 
-        .form-group {
+        .info-item p {
+            color: var(--text-gray);
+            font-size: 1.1rem;
+        }
+
+        .info-item strong {
+            display: block;
+            color: var(--primary);
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            margin-bottom: 5px;
+        }
+
+        /* --- Footer --- */
+        footer {
+            background: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 50px 5% 20px;
+        }
+        
+        .footer-logo {
+            font-size: 2rem;
+            font-family: 'Playfair Display', serif;
+            color: var(--gold);
             margin-bottom: 15px;
         }
 
-        .form-group label {
-            display: block;
-            margin-bottom: 5px;
-            font-weight: bold;
+        .footer-bottom {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.9rem;
+            color: #888;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
-        .form-group textarea, .form-group input {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            box-sizing: border-box;
-            font-family: inherit;
+        .footer-bottom p {
+            margin: 5px 0;
         }
 
-        .btn-send {
-            background-color: var(--primary-color);
+        /* --- Floating WhatsApp Button --- */
+        .float-wa {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #25D366;
             color: white;
-            border: none;
-            padding: 12px 20px;
-            font-size: 1rem;
-            border-radius: 5px;
-            cursor: pointer;
-            width: 100%;
-            font-weight: bold;
+            width: 65px;
+            height: 65px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 35px;
+            box-shadow: 0 5px 15px rgba(37, 211, 102, 0.4);
+            z-index: 1000;
+            transition: transform 0.3s ease;
+            text-decoration: none;
         }
 
-        .btn-send:hover {
-            background-color: #ad1457;
-        }
-
-        .warning {
-            font-size: 0.85rem;
-            color: #666;
-            margin-top: 10px;
-        }
-
-        /* Footer */
-        footer {
-            text-align: center;
-            padding: 2rem;
-            background: #333;
+        .float-wa:hover {
+            transform: scale(1.1) rotate(5deg);
             color: white;
-            margin-top: 3rem;
+        }
+
+        /* --- Animations --- */
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* --- Mobile Responsive --- */
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .hero h1 { font-size: 3rem; }
+            .hero p { font-size: 1rem; }
+            .section-title h2 { font-size: 2.2rem; }
+            .footer-bottom { justify-content: center; flex-direction: column; }
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <h1>Gokak Bangle Store</h1>
-        <p>Exclusive Wholesale & Retail Traditional Bangles</p>
+    <!-- Navigation -->
+    <nav>
+        <a href="#" class="logo">Gokak <span>Bangles</span></a>
+        <div class="nav-links">
+            <a href="#home">Home</a>
+            <a href="#collections">Collections</a>
+            <a href="#wholesale">Wholesale</a>
+            <a href="#visit">Visit Us</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header id="home" class="hero">
+        <div class="hero-content">
+            <h1>Exquisite Traditional Bangles</h1>
+            <p>Wholesale & Retailer • Gokak's Finest Heritage</p>
+            <a href="#collections" class="btn-gold">View Collections</a>
+        </div>
     </header>
 
-    <div class="container">
-        <!-- Store Information -->
-        <div class="info-card">
-            <h2>Visit Our Store</h2>
-            <p>We provide the most vibrant, high-quality traditional and modern bangles at the best wholesale prices.</p>
-            
-            <div class="address">
-                <strong>📍 Address:</strong><br>
-                Ho.No: 2888 Jain Galli, Gokak
-            </div>
-            
-            <br>
-            <p><strong>📞 Contact:</strong> +91 6363798987</p>
-            <a href="https://wa.me/916363798987" class="btn-whatsapp" target="_blank">Chat with us on WhatsApp</a>
+    <!-- Collections Section -->
+    <section id="collections" class="section-padding">
+        <div class="section-title">
+            <h2>Our Signature Collections</h2>
+            <p>Crafted with precision, worn with pride.</p>
         </div>
 
-        <!-- Admin Bulk Sender Tool -->
-        <div class="bulk-sender">
-            <h3>🛠️ Admin Tool: Direct WhatsApp Bulk Sender</h3>
-            <p>Use this tool to message customers directly without broadcasting. <em>Note: Please allow pop-ups in your browser for this to work.</em></p>
-            
-            <div class="form-group">
-                <label for="numbers">Customer Phone Numbers (comma-separated, include country code, e.g., 919876543210, 919999999999):</label>
-                <textarea id="numbers" rows="3" placeholder="91..., 91..."></textarea>
+        <div class="collections-grid">
+            <!-- Product Card 1 -->
+            <div class="collection-card">
+                <div class="card-img">
+                    <img src="https://images.unsplash.com/photo-1596541571217-152e93db9405?auto=format&fit=crop&w=800&q=80" alt="Bridal Gold Bangles">
+                </div>
+                <div class="card-content">
+                    <h3>The Bridal Heritage</h3>
+                    <p>Heavy, ornate gold-plated and antique finishes perfect for your special wedding day.</p>
+                </div>
             </div>
-            
-            <div class="form-group">
-                <label for="message">Message to Send:</label>
-                <textarea id="message" rows="4" placeholder="Hello! Check out our new bangle collections at Gokak Bangle Store..."></textarea>
-            </div>
-            
-            <button class="btn-send" onclick="sendBulkMessages()">Send Messages Sequentially</button>
-            <p class="warning"><strong>Disclaimer:</strong> This opens individual WhatsApp Web tabs for each number with a 3-second delay to bypass group restrictions natively via the browser. Sending too many messages to unsaved contacts may result in WhatsApp temporarily restricting your number.</p>
-        </div>
-    </div>
 
+            <!-- Product Card 2 -->
+            <div class="collection-card">
+                <div class="card-img">
+                    <img src="https://images.unsplash.com/photo-1605810731872-914757c919ac?auto=format&fit=crop&w=800&q=80" alt="Colorful Traditional Bangles">
+                </div>
+                <div class="card-content">
+                    <h3>Everyday Elegance</h3>
+                    <p>Vibrant, colorful glass and metal sets that bring a spark of joy to your daily attire.</p>
+                </div>
+            </div>
+
+            <!-- Product Card 3 -->
+            <div class="collection-card">
+                <div class="card-img">
+                    <img src="https://images.unsplash.com/photo-1629884948773-1959b329615a?auto=format&fit=crop&w=800&q=80" alt="Antique Temple Jewelry">
+                </div>
+                <div class="card-content">
+                    <h3>Temple & Antique</h3>
+                    <p>Authentic South Indian temple-style bangle designs featuring intricate craftsmanship.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Wholesale Banner -->
+    <section id="wholesale" class="wholesale-banner">
+        <h2>Wholesale Partnerships</h2>
+        <p>Looking to stock your own boutique? We offer unparalleled bulk pricing on our entire inventory of traditional and modern bangles. Quality and authenticity guaranteed for your customers.</p>
+        <a href="https://wa.me/916363798987" target="_blank" class="btn-gold" style="background: transparent; color: var(--gold);">Inquire for Bulk Orders</a>
+    </section>
+
+    <!-- Visit Us Section -->
+    <section id="visit" class="section-padding" style="background-color: #f7f3eb;">
+        <div class="contact-container">
+            <div class="contact-card">
+                <i class="fa-solid fa-store main-icon"></i>
+                <h3>Step Into Our World</h3>
+                
+                <div class="info-wrapper">
+                    <div class="info-item">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <div>
+                            <strong>Store Location</strong>
+                            <p>Ho.No: 2888 Jain Galli, Gokak</p>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <i class="fa-brands fa-whatsapp"></i>
+                        <div>
+                            <strong>Direct Contact</strong>
+                            <p>+91 6363798987</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
     <footer>
-        <p>&copy; 2026 Gokak Bangle Store. All Rights Reserved.</p>
+        <div class="footer-logo">Gokak Bangles</div>
+        <p style="color: #aaa; max-width: 500px; margin: 0 auto;">Bringing you the finest selection of wholesale and retail bangles directly from the heart of Gokak.</p>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2026 Gokak Bangle Store. All Rights Reserved.</p>
+            <p>Developed by Kunal Dongare</p>
+        </div>
     </footer>
 
-    <!-- JavaScript for Bulk WhatsApp Sending -->
-    <script>
-        function sendBulkMessages() {
-            const numbersInput = document.getElementById('numbers').value;
-            const message = document.getElementById('message').value;
+    <!-- Floating WhatsApp Icon for Customers -->
+    <a href="https://wa.me/916363798987" class="float-wa" target="_blank" aria-label="Chat on WhatsApp">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
 
-            if(!numbersInput || !message) {
-                alert("Please enter both numbers and a message.");
-                return;
-            }
-
-            // Split by comma and clean up spaces
-            const numbersArray = numbersInput.split(',').map(num => num.trim()).filter(num => num !== "");
-            
-            if(numbersArray.length === 0) {
-                alert("No valid numbers found.");
-                return;
-            }
-
-            alert(`Starting to send messages to ${numbersArray.length} contacts. Please ensure your browser allows pop-ups from this site.`);
-
-            let delay = 0;
-            
-            numbersArray.forEach((number, index) => {
-                setTimeout(() => {
-                    // Formulate the official WhatsApp click-to-chat URL
-                    const waUrl = `https://api.whatsapp.com/send?phone=${number}&text=${encodeURIComponent(message)}`;
-                    window.open(waUrl, '_blank');
-                    
-                    // Log to console for tracking
-                    console.log(`Opened chat for: ${number}`);
-                    
-                    if (index === numbersArray.length - 1) {
-                        alert("Finished opening all WhatsApp chats! You will need to hit 'Send' on each tab.");
-                    }
-                }, delay);
-                
-                // Add a 3-second delay between opening tabs to prevent browser crashing/blocking
-                delay += 3000; 
-            });
-        }
-    </script>
 </body>
 </html>
