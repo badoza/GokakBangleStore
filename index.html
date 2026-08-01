@@ -8,17 +8,20 @@
     <!-- Google Fonts for Premium Typography -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
     
     <style>
-        /* Minimalist & Premium Theme Variables */
+        /* --- Dark Luxury Theme Variables --- */
         :root {
-            --primary: #8b1c31; /* Deep Crimson */
-            --accent: #d4af37;  /* Metallic Gold */
-            --bg-color: #faf9f6; /* Soft Off-White */
-            --text-dark: #1a1a1a;
-            --text-light: #666666;
-            --white: #ffffff;
+            --bg-dark: #0a0a0a;         /* Deep Black Background */
+            --bg-card: #141414;         /* Sleek Dark Gray for Cards */
+            --accent-gold: #d4af37;     /* PTB Metallic Gold */
+            --accent-gold-hover: #ebd076;
+            --brand-crimson: #8b1c31;   /* PTB Signature Crimson */
+            --brand-crimson-dark: #5a0e1c;
+            --text-main: #f5f5f5;       /* Bright Off-White for reading */
+            --text-muted: #999999;      /* Elegant Gray for subtitles */
+            --border-light: rgba(212, 175, 55, 0.15); /* Faint gold borders */
         }
 
         * {
@@ -29,8 +32,8 @@
 
         body {
             font-family: 'Poppins', sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-dark);
+            background-color: var(--bg-dark);
+            color: var(--text-main);
             line-height: 1.6;
             overflow-x: hidden;
         }
@@ -40,19 +43,19 @@
             font-weight: 600;
         }
 
-        /* --- Animations --- */
+        /* --- Smooth Scroll Animations --- */
         @keyframes fadeUp {
             from { opacity: 0; transform: translateY(40px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
         @keyframes imageReveal {
-            from { opacity: 0; filter: blur(5px); transform: scale(0.98); }
+            from { opacity: 0; filter: blur(10px); transform: scale(0.95); }
             to { opacity: 1; filter: blur(0); transform: scale(1); }
         }
 
         .animate-up {
-            opacity: 0; /* Hidden by default until scrolled */
+            opacity: 0; 
             animation: fadeUp 1s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
         }
 
@@ -60,62 +63,74 @@
         .delay-2 { animation-delay: 0.4s; }
         .delay-3 { animation-delay: 0.6s; }
 
-        /* --- Navigation & PTB Logo --- */
+        /* --- Luxury Navigation & Logo --- */
         nav {
             padding: 1.5rem 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background-color: var(--white);
+            background-color: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(10px);
             position: sticky;
             top: 0;
             z-index: 100;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+            border-bottom: 1px solid var(--border-light);
         }
 
         .logo {
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 15px;
             text-decoration: none;
         }
 
         .ptb-mark {
-            background: var(--text-dark);
-            color: var(--accent);
+            background: linear-gradient(135deg, var(--accent-gold), #b38b22);
+            color: var(--bg-dark);
             padding: 8px 14px;
             border-radius: 4px;
             font-family: 'Playfair Display', serif;
             font-weight: 700;
-            font-size: 1.6rem;
+            font-size: 1.8rem;
             letter-spacing: 2px;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.2);
         }
 
         .brand-text {
             font-family: 'Poppins', sans-serif;
-            font-weight: 500;
-            font-size: 1.1rem;
-            color: var(--primary);
+            font-weight: 600;
+            font-size: 1.2rem;
+            color: var(--brand-crimson);
             text-transform: uppercase;
             letter-spacing: 2px;
-            line-height: 1.2;
+            line-height: 1.1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .brand-text span {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            letter-spacing: 3px;
+            font-weight: 300;
         }
 
         .contact-btn {
-            background-color: var(--primary);
-            color: var(--white);
+            background-color: transparent;
+            color: var(--accent-gold);
             padding: 0.7rem 1.8rem;
             text-decoration: none;
             border-radius: 30px;
             font-weight: 500;
             font-size: 0.95rem;
             transition: all 0.3s ease;
-            border: 1px solid var(--primary);
+            border: 1px solid var(--accent-gold);
         }
 
         .contact-btn:hover {
-            background-color: transparent;
-            color: var(--primary);
+            background-color: var(--accent-gold);
+            color: var(--bg-dark);
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
         }
 
         /* --- Hero Section --- */
@@ -137,14 +152,38 @@
             font-size: 4.5rem;
             line-height: 1.1;
             margin-bottom: 1.5rem;
-            color: var(--text-dark);
+            color: var(--text-main);
+        }
+
+        .hero-text h1 span {
+            color: var(--accent-gold);
+            font-style: italic;
         }
 
         .hero-text p {
             font-size: 1.1rem;
-            color: var(--text-light);
+            color: var(--text-muted);
             margin-bottom: 2.5rem;
             max-width: 450px;
+        }
+
+        .hero-btn {
+            background-color: var(--brand-crimson);
+            color: var(--text-main);
+            padding: 1rem 2.5rem;
+            font-size: 1.1rem;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            display: inline-block;
+            border: 1px solid var(--brand-crimson);
+        }
+
+        .hero-btn:hover {
+            background-color: transparent;
+            color: var(--brand-crimson);
+            border-color: var(--brand-crimson);
         }
 
         .hero-image {
@@ -160,24 +199,24 @@
             height: 650px;
             object-fit: cover;
             border-radius: 10px 100px 10px 10px;
-            box-shadow: -20px 20px 0px rgba(212, 175, 55, 0.15);
+            box-shadow: -20px 20px 0px rgba(212, 175, 55, 0.1);
         }
 
         /* --- Collections Grid --- */
         .collections {
             padding: 6rem 5%;
-            background-color: var(--white);
+            background-color: var(--bg-dark);
             text-align: center;
         }
 
         .section-title {
             font-size: 2.8rem;
             margin-bottom: 1rem;
-            color: var(--text-dark);
+            color: var(--accent-gold);
         }
 
         .section-subtitle {
-            color: var(--text-light);
+            color: var(--text-muted);
             margin-bottom: 4rem;
             max-width: 600px;
             margin-left: auto;
@@ -191,17 +230,18 @@
         }
 
         .card {
-            background: var(--bg-color);
+            background: var(--bg-card);
             padding: 1.5rem;
             border-radius: 12px;
-            transition: transform 0.4s ease;
+            transition: transform 0.4s ease, border-color 0.4s ease;
             text-align: left;
-            border: 1px solid #f0f0f0;
+            border: 1px solid var(--border-light);
         }
 
         .card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 15px 35px rgba(0,0,0,0.06);
+            border-color: var(--accent-gold);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.5);
         }
 
         .card img {
@@ -210,47 +250,51 @@
             object-fit: cover;
             border-radius: 8px;
             margin-bottom: 1.5rem;
-            background-color: #eee; /* Fallback color while loading */
+            background-color: #222; /* Placeholder before loading */
         }
 
         .card h3 {
             font-size: 1.6rem;
             margin-bottom: 0.5rem;
-            color: var(--primary);
+            color: var(--text-main);
         }
 
         .card p {
-            color: var(--text-light);
+            color: var(--text-muted);
             font-size: 0.95rem;
         }
 
-        /* --- Store Info / Banner --- */
+        /* --- Store Banner --- */
         .info-banner {
-            background: linear-gradient(135deg, var(--text-dark), #333333);
-            color: var(--white);
+            background: linear-gradient(135deg, var(--brand-crimson-dark), var(--bg-card));
+            color: var(--text-main);
             padding: 6rem 5%;
             text-align: center;
+            border-top: 1px solid var(--border-light);
+            border-bottom: 1px solid var(--border-light);
         }
 
         .info-banner h2 {
             font-size: 2.5rem;
             margin-bottom: 1.5rem;
-            color: var(--accent);
+            color: var(--accent-gold);
         }
 
         .address-box {
-            background: rgba(255,255,255,0.05);
+            background: rgba(10, 10, 10, 0.6);
             backdrop-filter: blur(10px);
             display: inline-block;
             padding: 2.5rem 4rem;
             border-radius: 10px;
-            border: 1px solid rgba(212, 175, 55, 0.3);
+            border: 1px solid var(--accent-gold);
             margin-top: 2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
         }
 
         .address-box p {
             font-size: 1.2rem;
             margin: 0.8rem 0;
+            color: var(--text-main);
         }
 
         /* --- Floating WhatsApp --- */
@@ -266,7 +310,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4);
+            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.3);
             transition: transform 0.3s ease;
             z-index: 1000;
         }
@@ -285,23 +329,22 @@
         footer {
             padding: 3rem 5%;
             text-align: center;
-            background-color: var(--white);
-            color: var(--text-light);
-            border-top: 1px solid #eaeaea;
+            background-color: var(--bg-dark);
+            color: var(--text-muted);
         }
 
         .footer-logo {
             font-family: 'Playfair Display', serif;
             font-weight: 700;
             font-size: 1.5rem;
-            color: var(--text-dark);
+            color: var(--accent-gold);
             margin-bottom: 1rem;
         }
 
         .signature {
             margin-top: 20px;
             font-size: 0.85rem;
-            color: #b0b0b0;
+            color: #666;
             letter-spacing: 1px;
             text-transform: uppercase;
         }
@@ -330,9 +373,6 @@
                 padding: 1.5rem;
                 width: 100%;
             }
-            .brand-text {
-                font-size: 0.9rem;
-            }
         }
     </style>
 </head>
@@ -341,8 +381,8 @@
     <!-- Navigation -->
     <nav>
         <a href="#" class="logo">
-            <span class="ptb-mark">PTB</span>
-            <span class="brand-text">Bennadi<br>Bangle Store</span>
+            <div class="ptb-mark">PTB</div>
+            <div class="brand-text">Bennadi <span>Bangle Store</span></div>
         </a>
         <a href="https://wa.me/916363798987" class="contact-btn" target="_blank">Inquire Now</a>
     </nav>
@@ -350,13 +390,13 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-text animate-up">
-            <h1>Heritage <br><span style="color: var(--primary); font-style: italic;">Redefined.</span></h1>
-            <p>Discover PT Bennadi's finest collection of premium traditional and modern wholesale bangles. Crafted with precision in Gokak.</p>
-            <a href="#collections" class="contact-btn" style="padding: 1rem 2.5rem; font-size: 1.1rem;">Explore Collection</a>
+            <h1>Heritage <br><span>Redefined.</span></h1>
+            <p>Discover PT Bennadi's finest collection of premium traditional and modern wholesale bangles. Crafted with absolute precision in Gokak.</p>
+            <a href="#collections" class="hero-btn">Explore Collection</a>
         </div>
         <div class="hero-image">
-            <!-- High-quality royalty-free image -->
-            <img src="https://images.unsplash.com/photo-1599643478524-fb5244ca76f0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Premium Traditional Indian Bangles">
+            <!-- Restored with clean Unsplash URL to bypass blockers -->
+            <img src="https://images.unsplash.com/photo-1599643478524-fb5244ca76f0?auto=format&fit=crop&w=1200&q=80" alt="Premium Traditional Indian Bangles">
         </div>
     </section>
 
@@ -368,21 +408,21 @@
         <div class="grid">
             <!-- Card 1 -->
             <div class="card animate-up delay-1">
-                <img src="https://images.unsplash.com/photo-1611591437281-460bfbe1220a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Gold Plated Bangles">
+                <img src="https://images.unsplash.com/photo-1611591437281-460bfbe1220a?auto=format&fit=crop&w=800&q=80" alt="Gold Plated Bangles">
                 <h3>Bridal & Antique</h3>
                 <p>Heavy traditional designs featuring intricate gold finishing, meticulously crafted for weddings and grand occasions.</p>
             </div>
             
             <!-- Card 2 -->
             <div class="card animate-up delay-2">
-                <img src="https://images.unsplash.com/photo-1605349479417-64cb25bd2713?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Colorful Glass Bangles">
+                <img src="https://images.unsplash.com/photo-1605349479417-64cb25bd2713?auto=format&fit=crop&w=800&q=80" alt="Colorful Glass Bangles">
                 <h3>Glass & Thread</h3>
                 <p>Vibrant, multi-colored premium glass bangles and handcrafted silk pieces for daily wear and festive celebrations.</p>
             </div>
             
             <!-- Card 3 -->
             <div class="card animate-up delay-3">
-                <img src="https://images.unsplash.com/photo-1515562141207-7a8efb7a2d1a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Wholesale Bangle Collection">
+                <img src="https://images.unsplash.com/photo-1515562141207-7a8efb7a2d1a?auto=format&fit=crop&w=800&q=80" alt="Wholesale Bangle Collection">
                 <h3>Wholesale Catalog</h3>
                 <p>Bulk orders crafted with uncompromising quality assurance. Perfect for retailers looking for high-margin, fast-moving designs.</p>
             </div>
@@ -395,12 +435,12 @@
         <p class="animate-up delay-1">Step into our Gokak showroom to experience the complete range of designs.</p>
         
         <div class="address-box animate-up delay-2">
-            <p style="color: var(--accent); font-weight: 600; font-size: 1.4rem;">PT Bennadi Bangle Store</p>
+            <p style="color: var(--accent-gold); font-weight: 600; font-size: 1.4rem;">PT Bennadi Bangle Store</p>
             <p><strong>📍 Flagship Store:</strong></p>
-            <p>Ho.No: 2888 Jain Galli, Gokak</p>
+            <p style="color: var(--text-muted);">Ho.No: 2888 Jain Galli, Gokak</p>
             <br>
             <p><strong>📞 Direct Inquiry:</strong></p>
-            <p>+91 6363798987</p>
+            <p style="color: var(--text-muted);">+91 6363798987</p>
         </div>
     </section>
 
@@ -424,7 +464,7 @@
         const observerOptions = {
             root: null,
             rootMargin: '0px',
-            threshold: 0.15 // Triggers slightly later for a smoother feel
+            threshold: 0.15 
         };
 
         const observer = new IntersectionObserver((entries, observer) => {
@@ -439,12 +479,10 @@
         document.addEventListener('DOMContentLoaded', () => {
             const animatedElements = document.querySelectorAll('.animate-up');
             animatedElements.forEach(el => {
-                // Keep paused until scrolled into view
                 el.style.animationPlayState = 'paused';
                 observer.observe(el);
             });
             
-            // Immediately run hero section animations so the page doesn't look blank on load
             document.querySelectorAll('.hero .animate-up').forEach(el => {
                 el.style.animationPlayState = 'running';
             });
